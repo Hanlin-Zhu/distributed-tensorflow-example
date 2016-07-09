@@ -9,7 +9,7 @@ A Simple Google Cloud Platform version is detailed as the following
 Step 1. Register for Google Cloud Platform ( you get 60 days trials and $300 for free)  https://cloud.google.com/
 
 Step 2. Go to your console (main page of GCE) and  create a compute machine instance. 
-        a. click the 3 horizontal bar icon on the top left corner, it gives a lists of services and products 
+        a. click the 3 horizontal bars icon on the top left corner, it gives a list of services and products 
         b. select compute->compute engine->create an instance
         c. use the name pc-01 and other default settings like 1vCPU, 3.75G, enable HTTP and HTTPS traffic
         
