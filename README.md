@@ -35,13 +35,13 @@ Step 7. Repeat Step 4 and 6 for all the other three virtual machines
 
 Step 8. Access each machine through SSH connect and run the corresponding example.py, the program won't start and may either freeze or raise connection failed error until you have run the program on all machines. 
 ```
-pc-01$ python ./distributed-tensorflow-example/example.py --job-name="ps" --task_index=0 
+pc-01$ python ./distributed-tensorflow-example/example.py --job_name="ps" --task_index=0 
 
-pc-02$ python ./distributed-tensorflow-example/example.py --job-name="worker" --task_index=0 
+pc-02$ python ./distributed-tensorflow-example/example.py --job_name="worker" --task_index=0 
 
-pc-03$ python ./distributed-tensorflow-example/example.py --job-name="worker" --task_index=1 
+pc-03$ python ./distributed-tensorflow-example/example.py --job_name="worker" --task_index=1 
 
-pc-04$ python ./distributed-tensorflow-example/example.py --job-name="worker" --task_index=2 
+pc-04$ python ./distributed-tensorflow-example/example.py --job_name="worker" --task_index=2 
 ```
 
 More details here: [ischlag.github.io](http://ischlag.github.io/)
