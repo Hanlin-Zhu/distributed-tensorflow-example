@@ -5,10 +5,10 @@ Trains a simple sigmoid neural network on mnist for 20 epochs on three machines 
 Change the hardcoded host urls below with your own hosts. 
 Run like this: 
 
-pc-01$ python example.py --job-name="ps" --task_index=0 
-pc-02$ python example.py --job-name="worker" --task_index=0 
-pc-03$ python example.py --job-name="worker" --task_index=1 
-pc-04$ python example.py --job-name="worker" --task_index=2 
+pc-01$ python example.py --job_name="ps" --task_index=0 
+pc-02$ python example.py --job_name="worker" --task_index=0 
+pc-03$ python example.py --job_name="worker" --task_index=1 
+pc-04$ python example.py --job_name="worker" --task_index=2 
 
 More details here: ischlag.github.io
 '''
@@ -47,18 +47,16 @@ from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 
 if FLAGS.job_name == "ps":
-  server.join()
+    server.join()
 elif FLAGS.job_name == "worker":
 
 	# Between-graph replication
-	with tf.device(tf.train.replica_device_setter(
-		worker_device="/job:worker/task:%d" % FLAGS.task_index,
+    with tf.device(tf.train.replica_device_setter(
+	    worker_device="/job:worker/task:%d" % FLAGS.task_index,
 		cluster=cluster)):
 
 		# count the number of updates
-		global_step = tf.get_variable('global_step', [], 
-																initializer = tf.constant_initializer(0), 
-																trainable = False)
+		global_step = tf.get_variable('global_step', [],initializer = tf.constant_initializer(0),trainable = False)
 
 		# input images
 		with tf.name_scope('input'):
